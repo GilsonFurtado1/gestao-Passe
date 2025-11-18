@@ -34,10 +34,12 @@
                   <a href="{{ route ('user.show', ['user'=>$user->id ]) }}" class="btn-primary action-btn"> Ver </a>
                   <a href="{{ route ('user.edit', ['user'=>$user->id ]) }}" class="btn-warning action-btn"> Editar </a>
               
-                  <form action="{{ route ('user.destroy', ['user'=>$user->id ]) }}" method= "POST">
+                  <form id ="delete-form-{{ $user->id }}" action="{{ route('user.destroy', ['user'=>$user->id ]) }}" 
+                        method= "POST">
                         @csrf        <!-- para não tulizar esse form fora daqui -->
                         @method ('delete')
-                        <button type= "submit" class="btn-danger action-btn" onclick="confirm('Tem certeza que deseja apagar este registo?')">Apagar</button>
+                        <button type= "button" class="btn-danger action-btn" 
+                        onclick="confirmDelete({{ $user->id }})">Apagar</button>
                   </form>
                      </td>
                </tr>
