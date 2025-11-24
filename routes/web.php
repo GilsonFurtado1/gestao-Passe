@@ -1,11 +1,15 @@
 <?php
 
 use App\http\Controllers\UserController;
+use App\http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('dashboard');
+
+//TEla Login
+Route:: get('/login', [AuthController::class, 'index'])->name('login');
 
 //'/show-user/{user}' : é como aparece no browser
 // 'show' : é o método dentro de UserController

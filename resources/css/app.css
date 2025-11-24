@@ -10,14 +10,60 @@
 @source "../**/*.js";
 @source "../**/*.vue";
 
-/* Tema base */AC
+/* Tema base */
 @theme {
-  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 
-  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/* Camada de componentes */
+/* COMPONENTS LAYER */
 @layer components {
+
+  /* ---- Login Page ---- */
+
+  .bg-login {
+    @apply bg-blue-900 min-h-screen flex flex-col justify-center items-center;
+  }
+
+  .card-login {
+    @apply bg-gray-100 mt-6 w-full overflow-hidden px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg;
+  }
+
+  .logo-wrapper-login {
+    @apply flex justify-center mb-4;
+  }
+
+  .logo-login {
+    @apply h-20 w-20;
+  }
+
+  .title-login {
+    @apply text-2xl font-semibold text-center text-blue-900;
+  }
+
+  .form-group-login {
+    @apply mt-4;
+  }
+
+  .form-label-login {
+    @apply text-gray-600 block text-sm font-medium;
+  }
+
+  .form-input-login {
+    @apply mt-1 block w-full rounded-md border-2 border-gray-200 shadow-sm 
+           focus:border-gray-300 focus:ring focus:ring-gray-200 focus:outline-none 
+           px-3 py-2;
+  }
+
+  .btn-group-login {
+    @apply mt-4 flex items-center justify-between;
+  }
+
+  .link-login {
+    @apply text-base text-blue-900 hover:no-underline;
+  }
+
+  /* ---- Layout Principal ---- */
 
   .main-container {
     @apply flex flex-col h-screen bg-gray-100;
@@ -39,7 +85,6 @@
     @apply flex space-x-6 ml-6;
   }
 
-  /* Nav links */
   .nav-link {
     @apply text-white transition-colors;
   }
@@ -48,7 +93,6 @@
     @apply text-gray-300;
   }
 
-  /* Conteúdo */
   .content {
     @apply flex-1 px-2 py-6 max-w-6xl mx-auto w-full;
   }
@@ -61,18 +105,25 @@
     @apply text-2xl;
   }
 
-  /* Botões */
+
+  /* ---- Botões ---- */
+
   .btn-primary {
     @apply p-2 bg-blue-500 text-white rounded-md transition-colors;
   }
+
   .btn-primary:hover {
     @apply bg-blue-600;
+  }
+
+  .btn-primary-md {
+    @apply bg-blue-500 text-white text-base px-4 py-2 rounded 
+           hover:bg-blue-400 transition-colors cursor-pointer;
   }
 
   .btn-info {
     @apply p-2 bg-cyan-500 text-white rounded-md transition-colors;
   }
-
 
   .btn-info:hover {
     @apply bg-cyan-600;
@@ -81,11 +132,11 @@
   .btn-success {
     @apply p-2 bg-green-500 text-white rounded-md cursor-pointer transition-colors;
   }
-   .btn-success:hover {
+  .btn-success:hover {
     @apply bg-green-600;
   }
 
-   .btn-warning {
+  .btn-warning {
     @apply p-2 bg-yellow-500 text-white rounded-md cursor-pointer transition-colors;
   }
   .btn-warning:hover {
@@ -95,12 +146,13 @@
   .btn-danger {
     @apply p-2 bg-red-500 text-white rounded-md cursor-pointer transition-colors;
   }
-  
   .btn-danger:hover {
     @apply bg-red-600;
   }
 
-  /* Formulários */
+
+  /* ---- Formulários ---- */
+
   .form-container {
     @apply mt-6 bg-white shadow-md rounded-lg p-6;
   }
@@ -110,61 +162,62 @@
   }
 
   .form-input {
-    @apply border p-2 w-full mt-1 rounded-md border-blue-100 shadow-sm 
-    focus:border-blue-300 focus:ring-blue-200 focus:outline-none;
+    @apply border p-2 w-full mt-1 rounded-md border-blue-100 shadow-sm
+           focus:border-blue-300 focus:ring-blue-200 focus:outline-none;
   }
 
-  /* Inicio alerta*/
-  .alert-success{
-     @apply p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-200 dark:bg-gray-800 dark:text-green-800
+
+  /* ---- Alertas ---- */
+
+  .alert-success {
+    @apply p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-200;
   }
 
   .alert-error {
-    @apply p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-200 dark:bg-gray-800 dark:text-red-400
+    @apply p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-200;
   }
 
-  .table-container{
-   @apply overflow-x-auto bg-white shadow-md rounded-lg;
+
+  /* ---- Tabelas ---- */
+
+  .table-container {
+    @apply overflow-x-auto bg-white shadow-md rounded-lg;
   }
 
-  .table{
-   @apply min-w-full border-collapse w-full;
+  .table {
+    @apply min-w-full border-collapse w-full;
   }
 
-  .table-header{
-   @apply bg-blue-400 text-white uppercase text-sm leading-normal;
+  .table-header {
+    @apply bg-blue-400 text-white uppercase text-sm leading-normal;
   }
 
-  .table-header th{
-   @apply py-3 px-6 text-left;
+  .table-header th {
+    @apply py-3 px-6 text-left;
   }
 
-  
-  .table-header center{
-    @apply text-center;
+  .table-body {
+    @apply text-gray-700 text-sm font-light;
   }
-  
-  .table-body{
-   @apply text-green-700 text-sm font-light;
+
+  .table-row {
+    @apply border-b border-gray-200 hover:bg-blue-50 transition;
   }
-  
-  .table-row{
-   @apply border-b border-gray-200 hover:bg-blue-50 transition; 
-  }
-  
-  .table-cell{
+
+  .table-cell {
     @apply py-3 px-6;
   }
 
-  .table-actions{
-   @apply  py-3 px-6 text-center flex space-x-1;
+  .table-actions {
+    @apply py-3 px-6 text-center flex space-x-1;
   }
- .pagination{
-  @appl mt-2 p-3;
- }
- .action-btn {
-    margin-right: 8px; /* ou 10px */
-}
 
+  .pagination {
+    @apply mt-2 p-3;
+  }
+
+  .action-btn {
+    margin-right: 8px;
+  }
 
 }
