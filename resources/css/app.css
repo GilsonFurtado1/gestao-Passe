@@ -63,14 +63,14 @@
 
   /* Botões */
   .btn-primary {
-    @apply bg-blue-500 text-white px-4 py-2 rounded-md transition-colors;
+    @apply p-2 bg-blue-500 text-white rounded-md transition-colors;
   }
   .btn-primary:hover {
     @apply bg-blue-600;
   }
 
   .btn-info {
-    @apply bg-cyan-500 text-white px-4 py-2 rounded-md transition-colors;
+    @apply p-2 bg-cyan-500 text-white rounded-md transition-colors;
   }
 
 

@@ -16,14 +16,31 @@ class UserController extends Controller
 {
     //carregar formulario registar novo utilizador
 
-    public function index()
+    public function index(Request $request)
     {
 
       //recuperar dados de BD
-      $users = User::orderByDesc('id')->paginate(3);
+     // $users = User::orderByDesc('id')->paginate(3);
+     $users = User::when(
+      $request->filled('name'), 
+      fn($query) =>
+       $query->whereLike('name', '%' .$request->name. '%')
+     )
+
+     ->when(
+      $request->filled('email'), 
+      fn($query) =>
+       $query->whereLike('email', '%' .$request->email. '%')
+     )
+     ->orderByDesc('id')
+     ->paginate(3)
+     ->withQueryString();
 
       //carregar uma view
-      return view ('users.index', ['users' => $users]);
+      return view ('users.index', ['users' => $users, 
+                                   'name' => $request->name,
+                                   'email' => $request->email,
+                                  ]);
 
     }
 
