@@ -19,8 +19,9 @@
            <h2 class = "title-logo">  <a href="{{ route ('dashboard') }}">GestaoPasse</a></h2>
            
             <ul class="list-nav-link">
+               <li><a href="{{ route ('tipo_passes.index') }}" class= "nav-link">Tipo de Passes</a></li>
                <li><a href="{{ route ('user.index') }}" class= "nav-link">Utilizadores</a></li>
-               <li><a href="{{ route ('dashboard') }}" class= "nav-link">Sair</a></li>
+               <li><a href="{{ route ('logout') }}" class= "nav-link">Sair</a></li>
             </ul>
 
         </div>

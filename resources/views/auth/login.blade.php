@@ -6,8 +6,9 @@
 
 <x-alert/>
 
-<form action="{{ route('login') }}" method="POST">
-    @csrf
+<form class="mt-4" action="{{ route('login.process') }}" method="POST"> 
+    @csrf  <!--permite aceitar dados apenas deste formulario -->
+    @method('POST')
 
     <div class="form-group-login">
         <label for="email" class="form-label-login">E-mail</label>
@@ -25,6 +26,10 @@
         <a href="#" class="link-login">Esqueceu o password?</a>
         <button type="submit" class="btn-primary-md">Acessar</button>
     </div>
-</form>
+
+    <div class="mt-4 text-center">
+      <a href="#" class="link-login">Criar nova conta!</a>
+    </div>
+</form> 
 
 @endsection

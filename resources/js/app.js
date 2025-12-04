@@ -1,19 +1,15 @@
-import './bootstrap';
-//import '../css/app.css';
+import { createApp, h } from 'vue';
+import { createInertiaApp } from '@inertiajs/vue3';
 
-window.confirmDelete = function(id){
-    Swal.fire({
-            title: "Tem certeza que deseja apagar este registo?",           
-            text: "Esta ação não pode ser desfeita!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Sim, eliminar!",
-            cancelButtonText: "Cancelar!"
-            }).then ((result)=>{
-               if(result.isConfirmed){
-                document.getElementById('delete-form-'+id ).submit();
-               }
-            })
-}
+
+createInertiaApp({
+    resolve: name => {
+        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+        return pages[`./Pages/${name}.vue`]
+    },
+    setup({ el, App, props, plugin }) {
+        createApp({ render: () => h(App, props) })
+            .use(plugin)
+            .mount(el)
+    },
+})
