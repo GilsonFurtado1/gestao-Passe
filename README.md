@@ -15,6 +15,13 @@ composer create-project laravel/laravel .
 * Iniciar o projecto criado comlaravel
  php artisan serve
 
+
+ * Executar as migration para criar a BD e tabelas
+ php artisan migrate
+
+ * Executar seed com php artisan para registar registos de testes
+php artisan db:seed
+
  * executar as bibliotecas Node.js
  npm run dev
 
